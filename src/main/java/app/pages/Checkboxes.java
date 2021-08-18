@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 
 public class Checkboxes {
 
-    By checkBoxlink1 = By.xpath("//*[@id=\"checkboxes\"]/input[1]");
+
     By checkBoxlink2 = By.xpath("//*[@id=\"checkboxes\"]/input[2]");
     By pageCheсkBox = By.linkText("Checkboxes");
 

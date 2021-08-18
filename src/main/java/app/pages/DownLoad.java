@@ -67,20 +67,7 @@ public class DownLoad {
             System.out.println("such derectory not exist");
         }
     }
-    /*Map<String, Object> chromePrefs = new HashMap<>();
-        chromePrefs.put("profile.default_content_settings.popups", 0);
-        chromePrefs.put("download.default_directory", System.getProperty("home/ivan/Music"));
-
-    ChromeOptions options = new ChromeOptions();
-        options.setExperimentalOption("prefs", chromePrefs);
-
-
-    WebDriver driver = new ChromeDriver(options);
-        driver.get("");
-        driver.findElement(linkGoPage).click();*/
-
-
-}
+  }
 
 
 

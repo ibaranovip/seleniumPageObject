@@ -15,7 +15,7 @@ public class DatePicker {
     private By inputTo = By.xpath("//*[@id=\"cityInputTo\"]");
     private By setFrom = By.xpath("//div[@class=\"city-select-dropdown__place\"]");
     private By setTo = By.xpath("//div[@class=\"city-select-dropdown__place\"]");
-    private By denySecondTicket = By.xpath("//*[@id=\"form-switcher\"]/li[1]/div/div/div/div/div[1]/div[4]/div[2]/div/div[2]/div[2]/button");
+    private By denySecondTicket = By.xpath("//button[contains(text(), 'Обратный билет не нужен')]");
     private By buttonSearch = By.xpath("//a[@class=\"uk-button uk-button-primary ts-v2__button ticket-search__btn margin-top--11px height--50px padding-top--7px\"]");
 
     private By clickCalendar = By.xpath("//*[@id=\"firstDatePicker\"]");
@@ -26,26 +26,23 @@ public class DatePicker {
         DriverManager.getDriver().get(url);
     }
 
-
+    //  PopUps windows close
     public void closeWindowPopUp(){
         Methods.PopupMenu();
         Methods.waitForClickablility(windowsPopup,5);
         Methods.clickJavaScript(windowsPopup);
     }
 
-
-
-
-
-    public void selectFromTo(String from, String to){  //Here any date you can give
+   // select date departure and arrive, citi from/to
+    public void selectFromTo(String from, String to){
 
         WebElement eval= DriverManager.getDriver().findElement(inputFrom);
         Methods.executarJavascript("arguments[0].click();", eval);
 
-
+        // enter city departure and get all city
         eval.sendKeys(from);
 
-
+        // search city departure from list and click
         List<WebElement> allcity = eval.findElements(setFrom);
         for(WebElement cell:allcity){
             String city=cell.getText();
@@ -57,14 +54,15 @@ public class DatePicker {
 
 
     ////////
-   //Here any date you can give
+   //
 
         WebElement city =DriverManager.getDriver().findElement(inputTo);
 
         Methods.waitForClickablility(inputTo, 5);
         Methods.clickJavaScript(inputTo);
+        //city arrive enter
         city.sendKeys(to);
-
+        // search city arrive from list and click
         List<WebElement> allCityTo = city.findElements(setTo);
         for(WebElement cell:allCityTo){
             String cityTo=cell.getText();
@@ -75,9 +73,11 @@ public class DatePicker {
         }
     }
 
-    public   void selectDate(String date ){  //Here any date you can give
+    public   void selectDate(String date ){
         Methods.clickJavaScript(clickCalendar);
+        // get calendar
         WebElement eval=DriverManager.getDriver().findElement(getCalendar);
+        //get all dates of current month
         List<WebElement> alldates = eval.findElements(By.tagName("td"));
         for(WebElement cell:alldates){
             String day=cell.getText();
@@ -90,7 +90,7 @@ public class DatePicker {
     public void clickDenyTicket(){
         Methods.clickWebElement(denySecondTicket);
     }
-    public void clickButtonSearch(){
-        Methods.clickWebElement(buttonSearch);
+
+    public void clickButtonSearch(){Methods.clickWebElement(buttonSearch);
     }
 }

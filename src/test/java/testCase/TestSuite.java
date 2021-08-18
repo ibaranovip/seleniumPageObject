@@ -1,7 +1,6 @@
 package testCase;
 
 
-import io.qameta.allure.Step;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -12,9 +11,21 @@ import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 public class TestSuite extends BasePageTest {
 
 
+    @Test(priority=1,testName="Date picker",description="Ввод места отправдения и назначения, даты полета", alwaysRun = true)
+    public void dataPicker() {
+        myApp.datePicker.getUrl("https://www.uralairlines.ru/");
+        myApp.datePicker.closeWindowPopUp();
+        myApp.datePicker.selectFromTo("Санкт-Петербург","Москва");
+        myApp.datePicker.selectDate("29");
+        myApp.datePicker.clickDenyTicket();
+        myApp.datePicker.clickButtonSearch();
+
+    }
 
 
-    @Test(priority=2,testName="Add element",description="", alwaysRun = true)
+
+
+    @Test(priority=2,testName="Add element",description="Интерактивное добавление элемента", alwaysRun = true)
     public void testAddElementPage() {
         myApp.addRemove.returnPage();
         assertThat(true).isEqualTo(myApp.addRemove.isElementPresentAdd1());
@@ -22,7 +33,7 @@ public class TestSuite extends BasePageTest {
 
     }
 
-    @Test(priority=3,testName="check box",description="",alwaysRun = true)
+    @Test(priority=3,testName="check box",description="Проверка чекбокса",alwaysRun = true)
     public void chekBoxes1() {
         myApp.checkboxes.goPage();
         assertThat(true).isEqualTo(myApp.checkboxes.checkboxIsSelected(2));
@@ -38,7 +49,7 @@ public class TestSuite extends BasePageTest {
     }
 
 
-    @Test  (priority=5,testName="search image Broken",description="",alwaysRun = true)
+    @Test  (priority=5,testName="search image Broken",description="Поиск битых ссылок",alwaysRun = true)
 
     public void brokenimage1() throws IOException {
         myApp.imageBroken.goPage();
@@ -47,7 +58,7 @@ public class TestSuite extends BasePageTest {
     }
 
 
-    @Test (priority=6,testName="pop up",description="", alwaysRun = true)
+    @Test (priority=6,testName="pop up",description="Обработка оповещений и всплывающих окон", alwaysRun = true)
     public void testChekPopUp() {
         myApp.popUp.getUrl("https://minicen.ru/");
         myApp.popUp.PopupMenu();
@@ -57,16 +68,16 @@ public class TestSuite extends BasePageTest {
 
 
 
-    @Test (priority=7,testName="imitation move mouse, select options seze",description="", alwaysRun = true)
+    @Test (priority=7,testName="",description=" Быстрый просмотр товара, выбор размера ", alwaysRun = true)
     public void testChekLink() throws InterruptedException {
         myApp.actionMouseScroll.getUrl("http://prestashop-automation.qatestlab.com.ua/ru");
         myApp.actionMouseScroll.moveMause();
-        assertThat("m").isEqualTo(myApp.actionMouseScroll.assertOption());
+        assertThat("l").isEqualTo(myApp.actionMouseScroll.assertOption());
     }
 
 
 
-    @Test(priority=8,testName="loginPage",description="", alwaysRun = true)
+    @Test(priority=8,testName="loginPage",description="Авторизация", alwaysRun = true)
     public void testLogin() {
 
 
@@ -76,20 +87,7 @@ public class TestSuite extends BasePageTest {
 
     }
 
-    @Test(priority=9,testName="loginPage",description="", alwaysRun = true)
-    public void dataPicker() {
-        myApp.datePicker.getUrl("https://www.uralairlines.ru/");
-        myApp.datePicker.closeWindowPopUp();
-        myApp.datePicker.selectFromTo("Санкт-Петербург","Москва");
-        myApp.datePicker.selectDate("29");
-        myApp.datePicker.clickDenyTicket();
-        myApp.datePicker.clickButtonSearch();
 
-
-
-
-
-    }
 
 }
 

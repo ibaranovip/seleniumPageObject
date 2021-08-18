@@ -6,9 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
 
 public class LoginPage  {
-    public LoginPage LoginPage() {
-        return new LoginPage();
-    }
+
 
     private By link = By.linkText("Form Authentication");
     private By fieldLogin = By.id("username");
