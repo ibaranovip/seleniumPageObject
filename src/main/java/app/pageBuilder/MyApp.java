@@ -12,6 +12,7 @@ public class MyApp extends MyAppBuilder{
     public ImageBroken imageBroken;
     public  PopUp popUp;
     public ActionMouseScroll actionMouseScroll;
+    public DatePicker datePicker;
 
     public MyApp() {
         loginPage = MyAppBuilder.pageLogin();
@@ -21,6 +22,8 @@ public class MyApp extends MyAppBuilder{
         imageBroken = new ImageBroken();
         actionMouseScroll = new ActionMouseScroll();
         popUp = new PopUp();
+        datePicker = new DatePicker();
+
 
 
 

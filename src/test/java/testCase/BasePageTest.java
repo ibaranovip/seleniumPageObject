@@ -36,7 +36,7 @@ public   class BasePageTest {
 
     @AfterMethod(alwaysRun = true)
     public void postCondition() {
-        DriverManager.quit();
+       // DriverManager.quit();
 
     }
 }
