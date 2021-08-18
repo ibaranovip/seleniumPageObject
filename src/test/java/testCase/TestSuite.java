@@ -76,6 +76,21 @@ public class TestSuite extends BasePageTest {
 
     }
 
+    @Test(priority=9,testName="loginPage",description="", alwaysRun = true)
+    public void dataPicker() {
+        myApp.datePicker.getUrl("https://www.uralairlines.ru/");
+        myApp.datePicker.closeWindowPopUp();
+        myApp.datePicker.selectFromTo("Санкт-Петербург","Москва");
+        myApp.datePicker.selectDate("29");
+        myApp.datePicker.clickDenyTicket();
+        myApp.datePicker.clickButtonSearch();
+
+
+
+
+
+    }
+
 }
 
 

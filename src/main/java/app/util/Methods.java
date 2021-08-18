@@ -4,10 +4,66 @@ import app.browser.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 import static app.browser.DriverManager.getDriver;
 
 public class Methods {
+    public static WebElement waitForVisibility(WebElement element, int timeout) {
+        WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(),timeout);
+        return wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public static void selectDate(String date, By locator, By tagName ){  //Here any date you can give
+        WebElement eval=DriverManager.getDriver().findElement(locator);
+        List<WebElement> alldates = eval.findElements(By.tagName("td"));
+        for(WebElement cell:alldates){
+            String day=cell.getText();
+            if (day.equals(date)) {
+                cell.click();
+                break;
+            }
+        }
+    }
+
+
+    public static void waitFor(int seconds) {
+        try {
+            Thread.sleep(seconds * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void clickWebElement(By element){
+       WebElement webElement = DriverManager.getDriver().findElement(element);
+       webElement.click();
+    }
+    public static void clickJavaScript(By element){
+        WebElement webElement = DriverManager.getDriver().findElement(element);
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        js.executeScript("arguments[0].click();",webElement);
+    }
+    public static void clickJavaScriptWebElem(WebElement webElement){
+                JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        js.executeScript("arguments[0].click();",webElement);
+    }
+    public static void clickPerfomance(By locator){
+
+
+    }
+    public static WebElement waitForClickablility(By element, int timeout) {
+        WebElement webElement = DriverManager.getDriver().findElement(element);
+        WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(),timeout);
+        return wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+
     public static Object executarJavascript(String cmd, Object... params) {
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
         return js.executeScript(cmd, params);
@@ -81,4 +137,18 @@ public class Methods {
             String[] content = element.toString().split("->")[1].replaceFirst("(?s)(.*)\\]", "$1" + "").trim().split(": ");
             return content[1];
         }
+
+    public static void  PopupMenu () {
+        String parentWindowHandler = DriverManager.getDriver().getWindowHandle(); // Store parent window
+        String newWindow = null;
+        Set<String> handles = DriverManager.getDriver().getWindowHandles();
+        Iterator<String> iter = handles.iterator();
+
+        while (iter.hasNext()) {    //switch next windows
+
+            newWindow = iter.next();
+            if (!parentWindowHandler.equals(newWindow)) {
+                DriverManager.getDriver().switchTo().window(newWindow);} }
+        DriverManager.getDriver().switchTo().window(parentWindowHandler);
+    }
 }
