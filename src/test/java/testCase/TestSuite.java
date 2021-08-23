@@ -10,8 +10,17 @@ import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
 public class TestSuite extends BasePageTest {
 
+    @Test(priority=2,testName="LoginMail",description="mail.ru", alwaysRun = true)
+    public void loginMail(){
+        myApp.loginMailru.getUrl("https://mail.ru/");
+        myApp.loginMailru.login("vchurina", "123456"); //here your email/password
 
-    @Test(priority=1,testName="Date picker",description="Ввод места отправдения и назначения, даты полета", alwaysRun = true)
+        assertThat("here your email").isEqualTo(myApp.loginMailru.getAssert());
+
+
+    }
+
+    @Test(priority=3,testName="Date picker",description="Ввод места отправдения и назначения, даты полета", alwaysRun = true)
     public void dataPicker() {
         myApp.datePicker.getUrl("https://www.uralairlines.ru/");
         myApp.datePicker.closeWindowPopUp();
@@ -25,7 +34,7 @@ public class TestSuite extends BasePageTest {
 
 
 
-    @Test(priority=2,testName="Add element",description="Интерактивное добавление элемента", alwaysRun = true)
+    @Test(priority=4,testName="Add element",description="Интерактивное добавление элемента", alwaysRun = true)
     public void testAddElementPage() {
         myApp.addRemove.returnPage();
         assertThat(true).isEqualTo(myApp.addRemove.isElementPresentAdd1());
@@ -33,13 +42,13 @@ public class TestSuite extends BasePageTest {
 
     }
 
-    @Test(priority=3,testName="check box",description="Проверка чекбокса",alwaysRun = true)
+    @Test(priority=5,testName="check box",description="Проверка чекбокса",alwaysRun = true)
     public void chekBoxes1() {
         myApp.checkboxes.goPage();
         assertThat(true).isEqualTo(myApp.checkboxes.checkboxIsSelected(2));
     }
 
-    @Test (priority=4,testName="Download file",description="",alwaysRun = true)
+    @Test (priority=6,testName="Download file",description="",alwaysRun = true)
 
 
     public void testDownload() throws Exception {
@@ -49,7 +58,7 @@ public class TestSuite extends BasePageTest {
     }
 
 
-    @Test  (priority=5,testName="search image Broken",description="Поиск битых ссылок",alwaysRun = true)
+    @Test  (priority=7,testName="search image Broken",description="Поиск битых ссылок",alwaysRun = true)
 
     public void brokenimage1() throws IOException {
         myApp.imageBroken.goPage();
@@ -58,7 +67,7 @@ public class TestSuite extends BasePageTest {
     }
 
 
-    @Test (priority=6,testName="pop up",description="Обработка оповещений и всплывающих окон", alwaysRun = true)
+    @Test (priority=8,testName="pop up",description="Обработка оповещений и всплывающих окон", alwaysRun = true)
     public void testChekPopUp() {
         myApp.popUp.getUrl("https://minicen.ru/");
         myApp.popUp.PopupMenu();
@@ -68,7 +77,7 @@ public class TestSuite extends BasePageTest {
 
 
 
-    @Test (priority=7,testName="",description=" Быстрый просмотр товара, выбор размера ", alwaysRun = true)
+    @Test (priority=9,testName="",description=" Быстрый просмотр товара, выбор размера ", alwaysRun = true)
     public void testChekLink() throws InterruptedException {
         myApp.actionMouseScroll.getUrl("http://prestashop-automation.qatestlab.com.ua/ru");
         myApp.actionMouseScroll.moveMause();
@@ -77,7 +86,7 @@ public class TestSuite extends BasePageTest {
 
 
 
-    @Test(priority=8,testName="loginPage",description="Авторизация", alwaysRun = true)
+    @Test(priority=10,testName="loginPage",description="Авторизация", alwaysRun = true)
     public void testLogin() {
 
 

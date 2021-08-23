@@ -13,6 +13,7 @@ public class MyApp extends MyAppBuilder{
     public  PopUp popUp;
     public ActionMouseScroll actionMouseScroll;
     public DatePicker datePicker;
+    public LoginMailru loginMailru;
 
     public MyApp() {
         loginPage = MyAppBuilder.pageLogin();
@@ -23,6 +24,7 @@ public class MyApp extends MyAppBuilder{
         actionMouseScroll = new ActionMouseScroll();
         popUp = new PopUp();
         datePicker = new DatePicker();
+        loginMailru = new LoginMailru();
 
 
 

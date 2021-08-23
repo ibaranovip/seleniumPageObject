@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Iterator;
@@ -14,6 +15,14 @@ import java.util.Set;
 import static app.browser.DriverManager.getDriver;
 
 public class Methods {
+
+    public static void SelectEtem(By locator, String option){
+        WebElement webElement = DriverManager.getDriver().findElement(locator);
+        Select select = new Select(webElement);
+        select.selectByVisibleText(option); //selectBy - VisibleText!!!!!
+    }
+
+
     public static WebElement waitForVisibility(WebElement element, int timeout) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(),timeout);
         return wait.until(ExpectedConditions.visibilityOf(element));
