@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -24,7 +25,7 @@ public class Methods {
 
 
     public static WebElement waitForVisibility(WebElement element, int timeout) {
-        WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(),timeout);
+        WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
 
@@ -41,13 +42,7 @@ public class Methods {
     }
 
 
-    public static void waitFor(int seconds) {
-        try {
-            Thread.sleep(seconds * 1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
+
 
     public static void clickWebElement(By element){
        WebElement webElement = DriverManager.getDriver().findElement(element);
@@ -66,10 +61,18 @@ public class Methods {
 
 
     }
-    public static WebElement waitForClickablility(By element, int timeout) {
-        WebElement webElement = DriverManager.getDriver().findElement(element);
-        WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(),timeout);
-        return wait.until(ExpectedConditions.elementToBeClickable(element));
+    public static void waitFor(int seconds) {
+        try {
+            Thread.sleep(seconds * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static WebElement waitForClickablility(By locator, int timeout) {
+        WebElement webElement = DriverManager.getDriver().findElement(locator);
+        WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(timeout));
+        return wait.until(ExpectedConditions.elementToBeClickable(webElement));
     }
 
 
@@ -105,8 +108,10 @@ public class Methods {
        return DriverManager.getDriver().findElement(element).getText();
     }
 
-    public static void sendElement(By element, String send){
-        DriverManager.getDriver().findElement(element).sendKeys(send);
+    public static void sendElement(By locator, String send){
+        WebElement webElement =DriverManager.getDriver().findElement(locator);
+        webElement.sendKeys(send);
+
     }
 
 

@@ -13,9 +13,10 @@ public class TestSuite extends BasePageTest {
     @Test(priority=2,testName="LoginMail",description="mail.ru", alwaysRun = true)
     public void loginMail(){
         myApp.loginMailru.getUrl("https://mail.ru/");
-        myApp.loginMailru.login("vchurina", "123456"); //here your email/password
+        myApp.loginMailru.login("bar_van", "682571AjN"); //here your email/password
+        myApp.loginMailru.compose("bar_van@mail.ru","test","Hello world");
 
-        assertThat("here your email").isEqualTo(myApp.loginMailru.getAssert());
+     //   assertThat("here your email").isEqualTo(myApp.loginMailru.getAssert());
 
 
     }
