@@ -32,11 +32,12 @@ public   class BasePageTest {
            myApp = new MyApp();
 
 
+
     }
 
     @AfterMethod(alwaysRun = true)
     public void postCondition() {
-        DriverManager.quit();
+      // DriverManager.quit();
 
     }
 }

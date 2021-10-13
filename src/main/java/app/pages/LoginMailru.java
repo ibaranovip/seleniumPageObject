@@ -31,7 +31,7 @@ public class LoginMailru {
 
     public  void    login (String userName, String password) {
         DriverManager.getDriver().findElement(fieldName).sendKeys(userName);
-        Methods.SelectEtem(itemSelect, "@mail.ru");
+        Methods.selectEtem(itemSelect, "@mail.ru");
         DriverManager.getDriver().findElement(buttonSetPassword).click();
         DriverManager.getDriver().findElement(fieldPasword).sendKeys(password);
         DriverManager.getDriver().findElement(buttonPasswordEnter).click();

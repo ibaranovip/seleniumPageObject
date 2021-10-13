@@ -16,6 +16,8 @@ import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.AbstractDriverOptions;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
 import app.exceptions.HeadlessNotSupportedException;
@@ -31,6 +33,7 @@ public enum BrowserFactory {
         public WebDriver createDriver() {
             WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
 
+
             return new ChromeDriver(getOptions());
         }
 
@@ -40,8 +43,14 @@ public enum BrowserFactory {
             chromeOptions.addArguments(START_MAXIMIZED);
             chromeOptions.addArguments("--disable-infobars");
             chromeOptions.addArguments("--disable-notifications");
-            //chromeOptions.setPageLoadStrategy(PageLoadStrategy.NONE);
+            //chromeOptions.addArguments("incognito");
+          //  chromeOptions.setCapability("unhandledPromptBehavior", "ignore");
+
+
+
+           // chromeOptions.setPageLoadStrategy(PageLoadStrategy.EAGER);
             chromeOptions.setHeadless(configuration().headless());
+
 
             return chromeOptions;
         }
