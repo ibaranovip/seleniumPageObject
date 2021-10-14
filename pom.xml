@@ -27,7 +27,7 @@
         <log4j.version>2.14.1</log4j.version>
         <webdrivermanager.version>4.4.3</webdrivermanager.version>
         <owner.version>1.0.12</owner.version>
-        <allure.version>2.14.0</allure.version>
+        <allure.version>2.15.0</allure.version>
         <allure-maven.version>2.10.0</allure-maven.version>
         <allure-environment-writer.version>1.0.0</allure-environment-writer.version>
         <allure.cmd.download.url>
@@ -120,28 +120,12 @@
             <artifactId>allure-environment-writer</artifactId>
             <version>${allure-environment-writer.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>5.2.12.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.18</version>
-        </dependency>
+
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-core-asl</artifactId>
             <version>1.4.0</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-openfeign-core</artifactId>
-            <version>2.2.6.RELEASE</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
-
 
 
     </dependencies>
