@@ -30,6 +30,8 @@ public class TestSuite extends BasePageTest {
         myApp.datePicker.selectDate("29");
         myApp.datePicker.clickDenyTicket();
         myApp.datePicker.clickButtonSearch();
+         //   assertThat("here  ").isEqualTo( );
+
 
     }
 
@@ -55,6 +57,7 @@ public class TestSuite extends BasePageTest {
         myApp.downLoad.goPage();
         myApp.downLoad.clickDownload();
         myApp.downLoad.isFileDownloaded("/home/ivan/Downloads", "some-file.txt");
+        //   assertThat("here  ").isEqualTo( );
     }
 
 
@@ -94,72 +97,12 @@ public class TestSuite extends BasePageTest {
 
     }
 
-    @Test(testName = "zaprosto")
-    public void test() {
-        myApp.dkp.getWindowHandle();
-        myApp.dkp.setUser("", "");
-
-
-        myApp.dkp.setShop();
-        myApp.dkp.createNewCredit();
-        myApp.dkp.selectManufacture();
-        myApp.dkp.selectNameProduct();
-
-        myApp.dkp.generateUser();
-        myApp.dkp.setNumberAgreement();
-        myApp.dkp.clickContinie();
-        myApp.dkp.assertVisible();
-
-
-        myApp.dkp.openNewTabJS();
-        myApp.dkp.getWindowHandle();
-        myApp.dkp.getUrl("https://test-admin.za-prosto.ru/");
-
-        myApp.dkp.accountLogout2();
-
-        myApp.dkp.accountLogout();
-
-        myApp.dkp.getUrl("https://test-admin.za-prosto.ru/");
-//        myApp.dkp.accountLogout2();
-//
-        myApp.dkp.setOpmenege("", "");
-        myApp.dkp.selectUser();
-        myApp.dkp.inputGuid();
-        myApp.dkp.clickAgreeOpM();
-        myApp.dkp.getWindowHandle();
-        myApp.dkp.getWindowHandle();
-        myApp.dkp.clickPopUpAgreeOpM();
-        myApp.dkp.getWindowHandle();
 
     }
 
-    @Test(testName = "zaprosto")
-    public void test2() {
-        myApp.dkp.getUrl("https://test-admin.za-prosto.ru/");
-//        myApp.dkp.accountLogout2();
-//
-        myApp.dkp.setOpmenege("", "");
-        myApp.dkp.selectUser();
-        myApp.dkp.inputGuidTest();
-       myApp.dkp.clickAgreeOpM();
+  
+    
 
-        //assertThat("").isEqualTo(myApp.dkp.clickAgreeOpM());
-        myApp.dkp.getWindowHandle();
-        myApp.dkp.getWindowHandle();
-        myApp.dkp.clickPopUpAgreeOpM();
-
-
-    }
-    @Test(testName = "zaprosto")
-    public void test3()   {
-        myApp.dkp.getSmsWindow();
-        myApp.dkp.getWindowHandle();
-        myApp.dkp.getWindowHandle();
-
-        myApp.dkp.getSms();
-        System.out.println(myApp.dkp.getSmsNumber());
-    }
-}
 
 
 
