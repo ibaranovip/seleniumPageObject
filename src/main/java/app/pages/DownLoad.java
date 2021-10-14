@@ -18,8 +18,6 @@ public class DownLoad {
     String Input;
     String fileDown;
 
-
-
     public DownLoad goPage() {
         DriverManager.getDriver().findElement(linkGoPage).click();
         return new DownLoad( );
@@ -30,9 +28,7 @@ public class DownLoad {
 
     }
 
-
     public void isFileDownloaded(String fileDownloadpath, String fileName) throws Exception {
-
 
         this.Input = fileName;
         this.fileDown = fileDownloadpath;
@@ -56,7 +52,6 @@ public class DownLoad {
                     e.printStackTrace();
                     System.out.println("not delited");
                 }
-
 
                 // действия, если папка существует
             } catch (IOException e) {

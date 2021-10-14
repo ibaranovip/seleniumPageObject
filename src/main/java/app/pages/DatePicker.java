@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 
-
 public class DatePicker {
     private By windowsPopup = By.xpath("//button[@class='uk-modal-close-outside uan-modal__close uk-icon']");
     private By inputFrom = By.xpath("//*[@id=\"field38\"]");
@@ -52,10 +51,7 @@ public class DatePicker {
             }
         }
 
-
     ////////
-   //
-
         WebElement city =DriverManager.getDriver().findElement(inputTo);
 
         Methods.waitForClickablility(inputTo, 5);
@@ -91,6 +87,8 @@ public class DatePicker {
         Methods.clickWebElement(denySecondTicket);
     }
 
-    public void clickButtonSearch(){Methods.clickWebElement(buttonSearch);
+
+    public void clickButtonSearch()
+    {Methods.clickWebElement(buttonSearch);
     }
 }
